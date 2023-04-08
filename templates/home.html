@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+	.topnav-right {
+		float: right;
+	  }
+	  
+	  .fancy {
+		@supports (background-clip: text) or (-webkit-background-clip: text) {
+		  background-image: 
+			url("data:image/svg+xml,%3Csvg width='2250' height='900' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg%3E%3Cpath fill='%2300A080' d='M0 0h2255v899H0z'/%3E%3Ccircle cx='366' cy='207' r='366' fill='%2300FDCF'/%3E%3Ccircle cx='1777.5' cy='318.5' r='477.5' fill='%2300FDCF'/%3E%3Ccircle cx='1215' cy='737' r='366' fill='%23008060'/%3E%3C/g%3E%3C/svg%3E%0A");
+		  background-size: 110% auto;
+		  background-position: center;
+		  color: transparent;
+		  -webkit-background-clip: text;
+		  background-clip: text;
+		}
+	  }
+	  h1 {
+		--s: 0.1em;   /* the thickness of the line */
+		--c: #50394c; /* the color */
+		
+		color: #0000;
+		padding-bottom: var(--s);
+		background: 
+		  linear-gradient(90deg,var(--c) 50%,#000 0) calc(100% - var(--_p,0%))/200% 100%,
+		  linear-gradient(var(--c) 0 0) 0% 100%/var(--_p,0%) var(--s) no-repeat;
+		-webkit-background-clip: text,padding-box;
+				background-clip: text,padding-box;
+		transition: 0.5s;
+		font-family: system-ui, sans-serif;
+  font-size: 5rem;
+  cursor: pointer;
+	  }
+	  h1:hover {
+		--_p: 100%
+	}
+
+
+</style>
+<video width="500" height="380" class="center" autoplay loop>
+  <source src= "{% static 'wlcm1.mp4' %}" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+	<div class="form-style1" align="middle" >
+		{% comment %} <div class="cent topnav-right">
+			<h1>
+			  <span>E2SL</span>
+			
+			  <span>E2SL</span>
+			  <span>E2SL</span>
+			
+			</h1>
+		  </div> {% endcomment %}
+		  {% comment %} <p><span class="fancy">E2SL</span></p> {% endcomment %}
+	<a href="{% url 'animation' %}"><button style=" width: 89%;
+		height:70%;
+		padding: 5%;
+		background: #feda6a;
+		border-bottom: 2px solid #393f4d;;
+		border-top-style: none;
+		border-right-style: none;
+		border-left-style: none;
+		color: #393f4d;
+	  font-weight: bold;
+	  font-size: 28px;
+	  font-family: Times New Roman;">Click to Start</button></a>
+	</div>
+{% endblock %}

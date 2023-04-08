@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form-style" method="post">
+    {% comment %} action="mailto:nanmolla1310@gmail.com" method="post" enctype="text/plain" {% endcomment %}
+      <H1>Request Word Form</H1>
+      <FORM class="site-form" method="post" action="{% url 'requestemail'%}">
+        {% csrf_token %}
+        Name: <INPUT type="text" name="name" placeholder="Enter your fullname here">
+        <BR>
+        Email: <INPUT type="email" name="mail" placeholder="e-mail address">
+        <BR>
+        Word You Want to Request: <INPUT type="text" name="word" placeholder="word request">
+        <BR>
+         <input TYPE="submit" value="Send">
+            {% comment %} href="{% url 'requestemail'%}" {% endcomment %}
+            {% comment %} onclick="sendEmail()" {% endcomment %}
+         <INPUT TYPE="reset" value="Reset">
+      </FORM>
+    </div>
+{% endblock %}
