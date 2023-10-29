@@ -1,21 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="request">
+  <p id="request-first">looked up a word,</p>
+  <p id="request-second">but we do not have it yet?</p>
+</div>
 <div class="form-style" method="post">
-    {% comment %} action="mailto:nanmolla1310@gmail.com" method="post" enctype="text/plain" {% endcomment %}
-      <H1>Request Word Form</H1>
-      <FORM class="site-form" method="post" action="{% url 'requestemail'%}">
-        {% csrf_token %}
-        Name: <INPUT type="text" name="name" placeholder="Enter your fullname here">
-        <BR>
-        Email: <INPUT type="email" name="mail" placeholder="e-mail address">
-        <BR>
-        Word You Want to Request: <INPUT type="text" name="word" placeholder="word request">
-        <BR>
-         <input TYPE="submit" value="Send">
-            {% comment %} href="{% url 'requestemail'%}" {% endcomment %}
-            {% comment %} onclick="sendEmail()" {% endcomment %}
-         <INPUT TYPE="reset" value="Reset">
-      </FORM>
-    </div>
+  {% comment %} action="mailto:nanmolla1310@gmail.com" method="post" enctype="text/plain" {% endcomment %}
+  <H1>Request Word Form</H1>
+  <FORM class="site-form" method="post" action="{% url 'requestemail'%}">
+    {% csrf_token %}
+    <label>Name</label><INPUT type="text" name="name" placeholder="Enter your fullname here">
+    <BR>
+    <label>Email</label><INPUT type="email" name="mail" placeholder="e-mail address">
+    <BR>
+    <label>Word to request</label><INPUT type="text" name="word" placeholder="word request">
+    <BR>
+    <input class="submit" TYPE="submit" value="Send">
+    {% comment %} href="{% url 'requestemail'%}" {% endcomment %}
+    {% comment %} onclick="sendEmail()" {% endcomment %}
+    <input class="reset" TYPE="reset" value="Reset">
+  </FORM>
+</div>
 {% endblock %}

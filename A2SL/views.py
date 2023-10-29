@@ -169,4 +169,4 @@ def rw(request):
 			# server.send_message(msg)
 		
 
-		return render(request, 'succeess.html')
+		return render(request, 'success.html')
