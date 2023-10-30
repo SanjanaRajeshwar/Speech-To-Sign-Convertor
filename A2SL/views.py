@@ -12,6 +12,9 @@ import smtplib, ssl
 import socket
 from email.message import EmailMessage
 
+import os
+from google.cloud import translate_v2
+
 
 def home_view(request):
 	return render(request,'home.html')
@@ -27,7 +30,7 @@ def contact_view(request):
 @login_required(login_url="login")
 def animation_view(request):
 	if request.method == 'POST':
-		text = request.POST.get('sen')
+		text = google_translate(request.POST.get('sen'))
 		#tokenizing the sentence
 		text.lower()
 		#tokenizing the sentence
@@ -106,6 +109,12 @@ def animation_view(request):
 		return render(request,'animation.html')
 
 
+def google_translate(text):
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS']= r"googlekey.json"
+    translate_client= translate_v2.Client()
+    target="en"
+    output= translate_client.translate(text,target_language=target)
+    return output["translatedText"]
 
 
 def signup_view(request):
