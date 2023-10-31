@@ -6,44 +6,49 @@
 <div class="split left">
 	<h2 align="center">Enter Text or Use Mic</h2>
 	<br>
-	<form action="" method="post" align="left">
-		{% csrf_token %}
-		<input type="text" name="sen" class="mytext" id="speechToText" placeholder="">
-		<button type="button" name="button" class="mic" onclick="record()"><img src="{% static 'mic.svg' %}"
-				height="32px" width="32px" style="margin-top: 4px;" /></button>
-		&nbsp
-		<input type="submit" name="submit" class="submit">
-
-	</form>
+	<div>
+		<form action="" method="post" align="left">
+			{% csrf_token %}
+			<input type="text" name="sen" class="mytext" id="speechToText" placeholder="">
+			<button type="button" name="button" class="mic" onclick="record()"><img src="{% static 'mic.svg' %}"
+					height="32px" width="32px" style="margin-top: 4px;" /></button>
+			&nbsp
+			<input type="submit" name="submit" class="submit">
+	
+		</form>
+	</div>
 	<br>
-	<table cellspacing="20px">
-		<tr>
-			<td class="td">The text that you entered is:</td>
-			<td class="td">{{ text }}</td>
-		</tr>
-		<tr>
-			<td class="td">Key words in sentence:</td>
-			<td class="td">
-				<ul class="td" id="list" align="center">
-					{% for word in words %}
-					<li id="{{ i }}" style="margin-right: 8px">{{ word }}</li>
-					{% endfor %}
-				</ul>
-			</td>
-		</tr>
-	</table>
+	<div style="margin-left: 54px;">
+		<table cellspacing="20px">
+			<tr>
+				<td class="td">The text that you entered is:</td>
+				<td class="td">{{ text }}</td>
+			</tr>
+			<tr>
+				<td class="td">Key words in sentence:</td>
+				<td class="td">
+					<ul class="td" id="list" align="center">
+						{% for word in words %}
+						<li id="{{ i }}" style="margin-right: 8px">{{ word }}</li>
+						{% endfor %}
+					</ul>
+				</td>
+			</tr>
+		</table>
+	</div>
 </div>
 <div class="split right">
 	<h2 align="center">Sign Language Animation</h2>
 
 	<div style="text-align:center"> &nbsp&nbsp
-		<button class="submit" onclick="playPause()">Play/Pause</button>
-		<button onclick="makeBig()">Big</button>
+		<center><button class="submit" onclick="playPause()">Play/Pause</button></center>
+		<br><br>
+		<!-- <button onclick="makeBig()">Big</button>
 		<button onclick="makeSmall()">Small</button>
-		<button onclick="makeNormal()">Normal</button>-->
+		<button onclick="makeNormal()">Normal</button> -->
 
 
-		<video id="videoPlayer" width="600" height="350" preload="auto" autoplay>
+		<video id="videoPlayer" width="600" height="350"  autoplay>
 			<source src="" type="video/mp4">
 			Your browser does not support HTML5 video.
 		</video>
@@ -68,7 +73,7 @@
 		var videos = document.getElementById("list").getElementsByTagName("li");
 		var j;
 		for (j = 0; j < videos.length; j++) {
-			videoSource[j] = "/static/" + videos[j].innerHTML + ".mp4";
+			videoSource[j] = "/static/" + videos[j].innerHTML.charAt(0).toUpperCase()+videos[j].innerHTML.slice(1) + ".mp4";
 		}
 
 		var i = 0; // define i
@@ -100,6 +105,34 @@
 			}
 		}
 	}
+	// function play() {
+	// 	var videoSources = new Array();
+	// 	var videos = document.getElementById("list").getElementsByTagName("li");
+	// 	var j;
+
+	// 	for (j = 0; j < videos.length; j++) {
+	// 		videoSources[j] = "/static/" + videos[j].innerHTML.charAt(0).toUpperCase() + videos[j].innerHTML.slice(1) + ".mp4";
+	// 	}
+
+	// 	var videoCount = videoSources.length;
+	// 	var videoPlayer = document.getElementById("videoPlayer");
+	// 	var currentIndex = 0;
+
+	// 	function playNextVideo() {
+	// 		videoPlayer.src = videoSources[currentIndex];
+	// 		videoPlayer.load();
+	// 		videoPlayer.play();
+	// 		currentIndex = (currentIndex + 1) % videoSources.length;
+	// 	}
+
+	// 	// Event listener for when a video ends
+	// 	videoPlayer.addEventListener("ended", function() {
+	// 		playNextVideo();
+	// 	});
+
+	// 	playNextVideo();
+	// }
+
 	/* LETS USE ONLY PLAY PAUSE BUTTON WITH 720 *420 ,IT FITS THE SCREEN
 	function makeBig() {
 		document.getElementById("videoPlayer").width = 560;
