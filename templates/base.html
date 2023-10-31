@@ -363,14 +363,6 @@ margin: initial;"> {% endcomment %}
       <li class="li"><a class="active" href="{% url 'home' %}">Home</a></li>
       <li class="li"><a href="{% url 'animation' %}">Convertor</a></li>
       <li class="li"><a href="{% url 'request' %}">Request Word</a></li>
-      {% if not user.is_authenticated %}
-      <li class="li"><a href="{% url 'signup' %}">Sign Up</a></li>
-      {% endif %}
-      {% if user.is_authenticated %}
-      <li class="li"><a href="{% url 'logout' %}">Log-Out</a></li>
-      {% else %}
-      <li class="li"><a href="{% url 'login' %}">Log-in</a></li>
-      {% endif %}
       {% comment %} <li class="li"><a href="{% url 'contact' %}">Contact</a></li> {% endcomment %}
       <li class="li"><a href="{% url 'about' %}">About</a></li>
 
