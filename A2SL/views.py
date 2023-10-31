@@ -110,7 +110,7 @@ def animation_view(request):
 
 
 def google_translate(text):
-    os.environ['GOOGLE_APPLICATION_CREDENTIALS']= r"googlekey.json"
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS']= r"A2SL/googlekey.json"
     translate_client= translate_v2.Client()
     target="en"
     output= translate_client.translate(text,target_language=target)
