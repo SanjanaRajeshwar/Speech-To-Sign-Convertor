@@ -92,7 +92,7 @@ def animation_view(request):
 
 		filtered_text = []
 		for w in words:
-			path = w + ".mp4"
+			path = w.capitalize() + ".mp4"
 			f = finders.find(path)
 			#splitting the word if its animation is not present in database
 			if not f:
