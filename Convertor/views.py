@@ -126,11 +126,11 @@ def rw(request):
 		word = request.POST.get('word')
 		port = 587  # For starttls
 		smtp_server = "smtp.gmail.com"
-		sender_email = "nanmolla1209@gmail.com"
+		sender_email = "isl.signify@gmail.com"
 		receiver_email = "nanmolla1310@gmail.com"
-		password = "pmqimnuffdeyclwk"
+		password = "rprttxluleukmdby"
 		message = """
-		Hey E2SL! User {name} with email ID {umail} requested for word - {word} to be added to the database."""
+		Hey! User {name} with email ID {umail} requested for word - {word} to be added to the database."""
 		context = ssl.create_default_context()
 		#socket.getaddrinfo('127.0.0,1', port)
 		with smtplib.SMTP(smtp_server,port) as server:
